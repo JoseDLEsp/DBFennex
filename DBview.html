@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+    <head>
+    <!-- Meta information -->
+    <title>Base de Datos Fennex</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="cssTeam">
+    <meta name="description" content="This is the products for Chemical Science for Students">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a1727"/>
+    <link rel="icon" href="media/icon.png" >
+    <!-- load styles and inmediate resources -->
+    <link type="text/css" rel="stylesheet" href="./css/style.css">   
+    <!-- Preconnet files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+    <body id="body">
+        <main id="app" >
+        
+            <header class="header-container flex-container">
+                <img class="logo-img" src="./media/fennexLogo.svg">
+                <nav id="navigationMenu" class="menu-container">
+                    <a class="menu-link">INICIO</a>
+                    <a class="menu-link">BLOG</a>
+                    <a class="menu-link">ACERCA DE</a>
+                    <a class="menu-link">DEMO</a>
+                    <a class="menu-link">CSS</a>
+                    <a class="menu-link">DB</a>
+                    <a class="menu-link">CONTACTO</a>
+                </nav>
+                <button class="menu-burger-button" @click="showMenu('burger')">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </header>
+
+            <main class="main-container">
+
+                <!-- ******* FORM ****** -->
+               <form class="search-form">
+                    <section class="left-form">
+                        <section class="top-fields">
+                            <h1 class="form-title">Busqueda</h1>
+                            <fieldset class="input-set input-set-name">
+                                <label>Nombre</label>
+                                <input class="form-input" placeholder="Nitroso">
+                            </fieldset>
+                            
+                        </section>
+                        <section class="bottom-fields">
+                            <fieldset class="input-set  input-set-clasification">
+                                <label>Clasificacion</label>
+                                <select class="form-input">
+                                    <option>Todos</option>
+                                    <option>Categoria 1</option>
+                                    <option>Categoria 2</option>
+                                </select>
+                            </fieldset>
+                           
+                            <fieldset class="input-set input-set-load">
+                                <label>Carga</label>
+                                <select class="form-input">
+                                    <option>Todos</option>
+                                    <option>Carga 1</option>
+                                    <option>Carga 2</option>
+                                </select>
+                            </fieldset>
+                            
+                            <fieldset class="input-set input-set-author">
+                                <label>Autor</label>
+                                <select class="form-input">
+                                    <option>Todos</option>
+                                    <option>Carga 1</option>
+                                    <option>Carga 2</option>
+                                </select>
+                            </fieldset>
+                            
+                        </section>
+                    </section>
+                    
+                    <section class="button-fields">
+                        <input class="form-button input-form-button" type="submit" value="Filtrar">
+                        <button class="form-button reset-form-button">Restablecer</button>
+                    </section>
+               </form>
+
+               <!-- ***** DATA TABLE ***** -->
+               <table class="data-table">
+                    <tr class="table-header">
+                        <th>Nombre</th> 
+                        <th>Fórmula</th>                     
+                        <th>MM(g/mol)</th>
+                        <th>Densidad(g/mL)</th>
+                        <th>Fusión(°C)</th>
+                        <th>Ebullición(°C)</th>
+                        <th>Clasificación</th>
+                        <th>Carga</th>
+
+                    </tr>
+                    <tr class="table-row" v-for="specie in species">
+                        <td>{{specie.name}}</td>
+                        <td>{{specie.formula}}</td>
+                        <td>{{specie.molarWeight}}</td>
+                        <td>{{specie.density}}</td>
+                        <td>{{specie.meltingPoint}}</td>                       
+                        <td>{{specie.boilingPoint}}</td>
+                        <td>{{specie.acidType}}</td>
+                        <td>{{specie.chargeType}}</td>
+                    </tr>
+               </table>
+            </main>
+
+            <footer class="footer-container">
+                <p>Copyright ©2023 CSS</p>
+                <section class="flex-container">
+                    <a class="social-media flex-container"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a class="social-media flex-container"><i class="fa-brands fa-instagram"></i></a>
+                    <a class="social-media flex-container"><i class="fa-brands fa-youtube"></i></a>
+                    <a class="social-media flex-container"><i class="fa-brands fa-tiktok"></i></a>
+                </section>
+            </footer>
+
+        </main>
+
+    </body>
+
+    <script type="text/javascript" src="./Scripts/app.js" defer></script>
+    <script src="Scripts/fontAsome.min.js" type="text/javascript" defer></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</html>
