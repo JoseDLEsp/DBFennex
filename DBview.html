@@ -41,7 +41,7 @@
                <form class="search-form">
                     <section class="left-form">
                         <section class="top-fields">
-                            <h1 class="form-title">Busqueda</h1>
+                            <h1 class="db-title">Busqueda</h1>
                             <fieldset class="input-set input-set-name">
                                 <label>Nombre</label>
                                 <input class="form-input" placeholder="Nitroso">
@@ -50,7 +50,7 @@
                         </section>
                         <section class="bottom-fields">
                             <fieldset class="input-set  input-set-clasification">
-                                <label>Clasificacion</label>
+                                <label>Clasificación</label>
                                 <select class="form-input">
                                     <option>Todos</option>
                                     <option>Categoria 1</option>
@@ -98,7 +98,7 @@
                         <th>Carga</th>
 
                     </tr>
-                    <tr class="table-row" v-for="specie in species">
+                    <tr class="table-row" v-for="specie in species" @click="openSpeciesInfo(specie)" href="SpecieView.html">
                         <td>{{specie.name}}</td>
                         <td>{{specie.formula}}</td>
                         <td>{{specie.molarWeight}}</td>

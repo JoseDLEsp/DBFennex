@@ -151,7 +151,7 @@ body{
 }
 
 
-/* ****** FORMULARIO DE BUSQUEDA ***** */
+/* ****** SEARCH FORM ***** */
 
 .search-form{
     display: flex;
@@ -175,7 +175,7 @@ body{
     justify-content: space-between;
 }
 
-.form-title{
+.db-title{
     font-size: 50px;
 }
 
@@ -247,11 +247,12 @@ fieldset{
     font-size: 18px;
 }
 
-/* ****** FORMULARIO DE BUSQUEDA ***** */
+/* ****** DATA TABLE ***** */
 
 .data-table{
     padding:0 40px;
     margin: 20px 0;
+    text-align: left;
 }
 
 .table-header{
@@ -260,8 +261,11 @@ fieldset{
 }
 
 .table-row{
-    text-align: left;
     font-size: 20px;
+}
+
+.table-row:hover{
+    cursor: pointer;
 }
 
 

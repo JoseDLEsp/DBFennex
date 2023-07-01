@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+    <head>
+    <!-- Meta information -->
+    <title>Base de Datos Fennex</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="cssTeam">
+    <meta name="description" content="This is the products for Chemical Science for Students">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a1727"/>
+    <link rel="icon" href="media/icon.png" >
+    <!-- load styles and inmediate resources -->
+    <link type="text/css" rel="stylesheet" href="./css/style.css">   
+    <!-- Preconnet files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+    <body id="body">
+        <main id="app" >
+        
+            <header class="header-container flex-container">
+                <img class="logo-img" src="./media/fennexLogo.svg">
+                <nav id="navigationMenu" class="menu-container">
+                    <a class="menu-link">INICIO</a>
+                    <a class="menu-link">BLOG</a>
+                    <a class="menu-link">ACERCA DE</a>
+                    <a class="menu-link">DEMO</a>
+                    <a class="menu-link">CSS</a>
+                    <a class="menu-link">DB</a>
+                    <a class="menu-link">CONTACTO</a>
+                </nav>
+                <button class="menu-burger-button" @click="showMenu('burger')">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </header>
+
+            <main class="main-container">
+
+                <!-- ******* Specie's info ****** -->
+                <section>
+                    <h2 class="db-title">Detalles</h2>
+                    <table class="data-table">
+                        <tr>
+                            <th></th>
+                            <th>Valores</th>
+                        </tr>
+                        <tr>
+                            <td>Nombre</td>
+                            <td>{{multiple_references.name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Formula</td>
+                            <td>{{multiple_references.formula}}</td>
+                        </tr>
+                        <tr>
+                            <td>Masa molar [g/mol]</td>
+                            <td>{{multiple_references.molarWeight}}</td>
+                        </tr>
+                        <tr>
+                            <td>Densidad [g/cm3]</td>
+                            <td>{{multiple_references.density}}</td>
+                        </tr>
+                        <tr>
+                            <td>Fusión [°C]</td>
+                            <td>{{multiple_references.meltingPoint}}</td>
+                        </tr>
+                        <tr>
+                            <td>Ebullición [°C]</td>
+                            <td>{{multiple_references.boilingPoint}}</td>
+                        </tr>
+                        <tr>
+                            <td>Ácido</td>
+                            <td>{{multiple_references.acidType}}</td>
+                        </tr>
+                        <tr>
+                            <td>Carga [°C]</td>
+                            <td>{{multiple_references.chargeType}}</td>
+                        </tr>
+
+
+                    </table>
+                </section>
+               
+            </main>
+
+            <footer class="footer-container">
+                <p>Copyright ©2023 CSS</p>
+                <section class="flex-container">
+                    <a class="social-media flex-container"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a class="social-media flex-container"><i class="fa-brands fa-instagram"></i></a>
+                    <a class="social-media flex-container"><i class="fa-brands fa-youtube"></i></a>
+                    <a class="social-media flex-container"><i class="fa-brands fa-tiktok"></i></a>
+                </section>
+            </footer>
+
+        </main>
+
+    </body>
+
+    <script type="text/javascript" src="./Scripts/app.js" defer></script>
+    <script src="Scripts/fontAsome.min.js" type="text/javascript" defer></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</html>
