@@ -41,7 +41,7 @@
                <form class="search-form">
                     <section class="left-form">
                         <section class="top-fields">
-                            <h1 class="db-title">Busqueda</h1>
+                            <h1 class="db-title">Búsqueda</h1>
                             <fieldset class="input-set input-set-name">
                                 <label>Nombre</label>
                                 <input class="form-input" placeholder="Nitroso">
@@ -58,35 +58,39 @@
                                 </select>
                             </fieldset>
                            
-                            <fieldset class="input-set input-set-load">
-                                <label>Carga</label>
-                                <select class="form-input">
-                                    <option>Todos</option>
-                                    <option>Carga 1</option>
-                                    <option>Carga 2</option>
-                                </select>
-                            </fieldset>
+                            <section class="responsive-wrapper">
+                                <fieldset class="input-set input-set-charge">
+                                    <label>Carga</label>
+                                    <select class="form-input-small">
+                                        <option>Todos</option>
+                                        <option>Carga 1</option>
+                                        <option>Carga 2</option>
+                                    </select>
+                                </fieldset>
+                                
+                                <fieldset class="input-set input-set-author">
+                                    <label>Autor</label>
+                                    <select class="form-input-small">
+                                        <option>Todos</option>
+                                        <option>Carga 1</option>
+                                        <option>Carga 2</option>
+                                    </select>
+                                </fieldset>
+                            </section>
                             
-                            <fieldset class="input-set input-set-author">
-                                <label>Autor</label>
-                                <select class="form-input">
-                                    <option>Todos</option>
-                                    <option>Carga 1</option>
-                                    <option>Carga 2</option>
-                                </select>
-                            </fieldset>
                             
                         </section>
                     </section>
                     
                     <section class="button-fields">
-                        <input class="form-button input-form-button" type="submit" value="Filtrar">
-                        <button class="form-button reset-form-button">Restablecer</button>
+                        <input class="filter-button" type="submit" value="Filtrar">
+                        <button class="reset-form-button">Restablecer</button>
                     </section>
                </form>
 
                <!-- ***** DATA TABLE ***** -->
-               <table class="data-table">
+               <section class="table-wrapper">
+                <table class="data-table">
                     <tr class="table-header">
                         <th>Nombre</th> 
                         <th>Fórmula</th>                     
@@ -109,6 +113,8 @@
                         <td>{{specie.chargeType}}</td>
                     </tr>
                </table>
+               </section>
+               
             </main>
 
             <footer class="footer-container">

@@ -157,14 +157,17 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    height: 50vh;
     width: 100%;
-    padding: 0px 50px 
+    margin-bottom: 30px;
 }
 
 .left-form{
-    margin:auto 0;
     width: 70%;
+    margin-left: 40px;
+}
+
+.right-form{
+    width: 30%;
 }
 
 
@@ -177,6 +180,14 @@ body{
 
 .db-title{
     font-size: 50px;
+}
+
+.responsive-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 55%;
+
 }
 
 fieldset{
@@ -196,11 +207,12 @@ fieldset{
     margin-bottom: 10px;
 }
 
-.form-input{
+.form-input, .form-input-small{
     height: 40px;
     font-size: 17px;
     border-radius: 8px;
-    box-shadow: 0 0 0;
+    padding: 0;
+    box-shadow: none;
     text-align: center;
     -webkit-appearance: none; 
     -moz-appearance: none; 
@@ -210,8 +222,8 @@ fieldset{
 
 .input-set-name{width: 50%;}
 .input-set-clasification{width: 40%;}
-.input-set-load{width: 30%;}
-.input-set-author{width: 15%;}
+.input-set-charge{width: 60%;}
+.input-set-author{width: 45%;}
 
 .button-fields{
     display: flex;
@@ -221,8 +233,8 @@ fieldset{
     align-items:center
 }
 
-.form-button {
-    font-weight: 600;
+.filter-button, .reset-form-button {
+    margin-top: 30px;
     color: white;
     border-radius: 8px;
     border: none;
@@ -230,29 +242,29 @@ fieldset{
     outline: none;
 }
 
-.form-button:hover{
-    cursor: pointer;
-}
-
-.input-form-button{
-    font-size: 22px;
-    height: 40px;
-    margin-top: 40%;
-    margin-bottom: 20px;
-    width: 150px;
-}
-
 .reset-form-button{
     height: 40px;
     font-size: 18px;
 }
 
+.filter-button{
+    height: 40px;
+    width: 200px;
+    min-width: fit-content;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
 /* ****** DATA TABLE ***** */
+.table-wrapper{
+    overflow-x: auto;
+    margin: 0 40px;
+}
 
 .data-table{
-    padding:0 40px;
-    margin: 20px 0;
     text-align: left;
+    width: 100%;   
+    white-space: nowrap;
 }
 
 .table-header{
@@ -262,6 +274,10 @@ fieldset{
 
 .table-row{
     font-size: 20px;
+}
+
+.table-row td{
+    margin: 10px;
 }
 
 .table-row:hover{
@@ -302,7 +318,7 @@ fieldset{
 .info{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 0 100px;
 }
 
@@ -339,7 +355,6 @@ fieldset{
 .pka-info{
     display: flex;
     flex-direction: row;
-    margin-left: ;
 }
 
 
@@ -497,6 +512,57 @@ fieldset{
 
     .menu-settings-button{
         display: none;
+    }
+
+}
+
+@media (max-width: 916px) {
+    .search-form{
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .left-form{
+        margin: 0 20px;
+        width: 90%;
+    }
+    .top-fields{
+        margin: 0;
+        justify-content: space-around;
+    }
+    
+
+    .button-fields{
+        margin-top: 30px;
+    }
+
+
+}
+
+@media (max-width: 750px) {
+ 
+    .db-title{
+        font-size: 40px;
+        margin: 20px 0;
+    }
+
+    .top-fields{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bottom-fields{
+        flex-direction: column;
+        align-items: center;
+    }
+    .form-input, .responsive-wrapper{
+        width: 80vw;
+        margin-bottom: 10px;
+    }
+
+    .table-wrapper, .data-table{
+        margin: 0;
+        transform: rotateX(180deg);
     }
 
 }
