@@ -36,50 +36,70 @@
             </header>
 
             <main class="main-container">
-
+                <script>
+                    
+                </script>
                 <!-- ******* Specie's info ****** -->
                 <section>
-                    <h2 class="db-title">Detalles</h2>
-                    <table class="data-table">
-                        <tr>
-                            <th></th>
-                            <th>Valores</th>
-                        </tr>
-                        <tr>
-                            <td>Nombre</td>
-                            <td>{{multiple_references.name}}</td>
-                        </tr>
-                        <tr>
-                            <td>Formula</td>
-                            <td>{{multiple_references.formula}}</td>
-                        </tr>
-                        <tr>
-                            <td>Masa molar [g/mol]</td>
-                            <td>{{multiple_references.molarWeight}}</td>
-                        </tr>
-                        <tr>
-                            <td>Densidad [g/cm3]</td>
-                            <td>{{multiple_references.density}}</td>
-                        </tr>
-                        <tr>
-                            <td>Fusión [°C]</td>
-                            <td>{{multiple_references.meltingPoint}}</td>
-                        </tr>
-                        <tr>
-                            <td>Ebullición [°C]</td>
-                            <td>{{multiple_references.boilingPoint}}</td>
-                        </tr>
-                        <tr>
-                            <td>Ácido</td>
-                            <td>{{multiple_references.acidType}}</td>
-                        </tr>
-                        <tr>
-                            <td>Carga [°C]</td>
-                            <td>{{multiple_references.chargeType}}</td>
-                        </tr>
+                    <header class="specie-header">
+                        <h2 class="specie-title">Detalles</h2>
+                        <section class="specie-header-info" >
+                            <p>{{specie.name}}</p>
+                            <p>{{specie.formula}}</h3>
+                        </section>
+                    </header>
+                    <section class="info">
+                        <dl class="left-info">
+                            <dt>Masa molar [g/mol]</dt>
+                            <dd>{{checkNotNull(specie.molarWeight)}}</dd>
+    
+                            <dt>Densidad [g/ml]</dt>
+                            <dd>{{checkNotNull(specie.density)}}</dd>
+    
+                            <dt>Fusión(°C)</dt>
+                            <dd>{{checkNotNull(specie.meltingPoint)}}</dd>
+    
+                            <dt>Ebullición(°C)</dt>
+                            <dd>{{checkNotNull(specie.boilingPoint)}}</dd>
+                        </dl>
+                        <dl class="right-info">
+                            <dt>Clasificación</dt>
+                            <dd>{{checkNotNull(specie.acidType)}}</dd>
+    
+                            <dt>Tipo</dt>
+                            <dd>{{checkNotNull(specie.type)}}</dd>
+    
+                            <dt>Carga</dt>
+                            <dd>{{checkNotNull(specie.chargeType)}}</dd>
+    
+                            <dt>Referencia</dt>
+                            <dd>{{checkNotNull(specie.constants[0].reference.author)}}</dd>
+                        </dl>
+                    </section>
+                    
+                </section>
 
 
-                    </table>
+                <!-- Data  -->
+                <section v-if="checkNotNull(specie.constants[0].kaValues[0]) != '-'">
+                        <h3 class="specie-subtitle">Datos de acidez</h2>
+
+                <dl v-for="(pka, index) in specie.constants[0].kaValues">
+                    <dd v-if="checkNotNull(specie.constants[0].kaValues[index])  != '-'" class="pka-info">
+                        <p class="index-number">
+                            {{index + 1}}
+                        </p>
+                        <dl>
+                            <dt>Ka</dt>
+                            <dd >{{specie.constants[0].kaValues[index]}}</dd>
+                            <dt class="pka-value">pKa</dt>
+                            <dd class="pka-value">{{specie.constants[0].pkaValues[index]}}</dd>
+                        </dl>
+                    </dd>
+                </dl>
+
+
+
                 </section>
                
             </main>
