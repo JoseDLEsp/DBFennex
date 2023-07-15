@@ -50,17 +50,26 @@
                     </header>
                     <section class="info">
                         <dl class="left-info">
-                            <dt>Masa molar [g/mol]</dt>
-                            <dd>{{checkNotNull(specie.molarWeight)}}</dd>
+                            <dt>Masa molar</dt>
+                            <dd>{{checkNotNull(specie.molarWeight)}} <span>g/mol</span></dd>
     
-                            <dt>Densidad [g/ml]</dt>
-                            <dd>{{checkNotNull(specie.density)}}</dd>
+                            <dt>Densidad </dt>
+                            <dd>
+                                {{checkNotNull(specie.density)}} 
+                                <span v-if="checkNotNull(specie.density)!='-'">g/ml</span>
+                            </dd>
     
-                            <dt>Fusión(°C)</dt>
-                            <dd>{{checkNotNull(specie.meltingPoint)}}</dd>
+                            <dt>Fusión</dt>
+                            <dd>
+                                {{checkNotNull(specie.meltingPoint)}}
+                                <span v-if="checkNotNull(specie.density)!='-'">°C</span>
+                            </dd>
     
-                            <dt>Ebullición(°C)</dt>
-                            <dd>{{checkNotNull(specie.boilingPoint)}}</dd>
+                            <dt>Ebullición</dt>
+                            <dd>
+                                {{checkNotNull(specie.boilingPoint)}}
+                                <span v-if="checkNotNull(specie.density)!='-'">°C</span>
+                            </dd>
                         </dl>
                         <dl class="right-info">
                             <dt>Clasificación</dt>
