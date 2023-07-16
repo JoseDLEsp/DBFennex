@@ -265,6 +265,11 @@ fieldset{
     text-align: left;
     width: 100%;   
     white-space: nowrap;
+    border-collapse: collapse;
+}
+
+thead{
+    background-color: var(--blue);
 }
 
 .table-header{
@@ -272,12 +277,18 @@ fieldset{
     color: white;
 }
 
+.table-header th{
+    padding-left: 10px ;
+    font-size: 20px;
+    
+}
+
 .table-row{
     font-size: 20px;
 }
 
 .table-row td{
-    margin: 10px;
+    padding:10px 10px 10px 10px;
 }
 
 .table-row:hover{

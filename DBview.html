@@ -14,8 +14,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
 </head>
-
     <body id="body">
         <main id="app" >
         
@@ -38,13 +38,13 @@
             <main class="main-container">
 
                 <!-- ******* FORM ****** -->
-               <form class="search-form">
+               <form v-on:submit.prevent="filterByName()" class="search-form">
                     <section class="left-form">
                         <section class="top-fields">
                             <h1 class="db-title">Búsqueda</h1>
                             <fieldset class="input-set input-set-name">
                                 <label>Nombre</label>
-                                <input class="form-input" placeholder="Nitroso">
+                                <input v-model="wordFilter" class="form-input" placeholder="Nitroso">
                             </fieldset>
                             
                         </section>
@@ -63,8 +63,9 @@
                                     <label>Carga</label>
                                     <select class="form-input-small">
                                         <option>Todos</option>
-                                        <option>Carga 1</option>
-                                        <option>Carga 2</option>
+                                        <option>Positiva</option>
+                                        <option>Negativa</option>
+                                        <option>Neutra</option>
                                     </select>
                                 </fieldset>
                                 
