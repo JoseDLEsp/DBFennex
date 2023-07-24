@@ -47,6 +47,7 @@ createApp({
   },
   mounted() {},
   computed: {
+    // Variable array that returns the species based on the filters set
     filteredSpecies(){
       return this.species.filter(specie => this.normalizeString(specie.name).includes(this.normalizeString(this.wordFilter)) 
       && this.chargeFilter(specie)
@@ -83,6 +84,8 @@ createApp({
       }
     },
 
+
+    // Makes a request to de Fennex api to get all the species displayed on the table
     getSpecies(){
       axios.get("http://54.86.87.78/api/species")
       .then(response => {
@@ -94,28 +97,35 @@ createApp({
       })
     },
 
+// ************* FILTERS ***************
+
+    // Turns string intro lowercase and takes off special characters such as accents
     normalizeString(string){
       return string.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
     },
     
+    // Checks if the sent specie's charge matches with the filter selection.
     chargeFilter(specie){
       if(this.selectedCharge == "Todos"){return true}
       else if (this.selectedCharge == specie.chargeType ){return true}
       else{return false}
     },
 
+    // Checks if the sent specie's acid type matches with the filter selection.
     acidTypeFilter(specie){
       if(this.selectedAcidType == "Todos"){return true}
       else if (this.selectedAcidType == specie.acidType ){return true}
       else{return false}
     },
 
+    // Takes off all the filters.
     resetFilters(){
       this.selectedAcidType = "Todos"
       this.selectedCharge = "Todos"
       this.wordFilter = ""
     },
 
+    // Checks if a sent string is null, and if so, returns a "-" string.
     checkNotNull(info) {
       info != null ? (value = info) : (value = "-");
       return value;
