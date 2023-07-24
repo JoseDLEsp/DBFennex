@@ -255,6 +255,10 @@ fieldset{
     margin-bottom: 10px;
 }
 
+.filter-button:hover, .reset-form-button:hover{
+    cursor: pointer;
+}
+
 /* ****** DATA TABLE ***** */
 .table-wrapper{
     overflow-x: auto;

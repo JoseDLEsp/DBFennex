@@ -50,11 +50,11 @@
                         <section class="bottom-fields">
                             <fieldset class="input-set  input-set-clasification">
                                 <label>Clasificación</label>
-                                <select class="form-input">
+                                <select class="form-input" v-model="selectedAcidType">
                                     <option>Todos</option>
-                                    <option>Ácido debil</option>
+                                    <option>Ácido débil</option>
                                     <option>Ácido fuerte</option>
-                                    <option>Base debil</option>
+                                    <option>Base débil</option>
                                     <option>Base fuerte</option>
                                 </select>
                             </fieldset>
@@ -62,17 +62,17 @@
                             <section class="responsive-wrapper">
                                 <fieldset class="input-set input-set-charge">
                                     <label>Carga</label>
-                                    <select class="form-input-small">
+                                    <select class="form-input-small" v-model="selectedCharge">
                                         <option>Todos</option>
-                                        <option>Positiva</option>
-                                        <option>Negativa</option>
-                                        <option>Neutra</option>
+                                        <option>Catión</option>
+                                        <option>Anión</option>
+                                        <option>Neutro</option>
                                     </select>
                                 </fieldset>
                                 
                                 <fieldset class="input-set input-set-author">
                                     <label>Autor</label>
-                                    <select class="form-input-small">
+                                    <select class="form-input-small" v-model="selectedAuthor">
                                         <option>Todos</option>
                                         <option>Chang, R.</option>
                                         <option>Skoog, D.</option>
@@ -88,7 +88,7 @@
                     
                     <section class="button-fields">
                         <input class="filter-button" type="submit" value="Filtrar">
-                        <button class="reset-form-button" @click="wordFilter = ''">Restablecer</button>
+                        <button class="reset-form-button" @click="resetFilters()">Restablecer</button>
                     </section>
                </form>
 

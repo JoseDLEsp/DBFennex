@@ -2,7 +2,6 @@ const { createApp } = Vue;
 
 createApp({
   created: function(){
-    console.log("Fui creado")
     this.getSpecies();
   },
   data() {
@@ -40,12 +39,18 @@ createApp({
       species: [],
       specie,
       wordFilter:"",
+      selectedAuthor: "Todos",
+      selectedCharge: "Todos",
+      selectedAcidType: "Todos"
+
     };
   },
   mounted() {},
   computed: {
     filteredSpecies(){
-      return this.species.filter(specie => specie.name.includes(this.wordFilter))
+      return this.species.filter(specie => this.normalizeString(specie.name).includes(this.normalizeString(this.wordFilter)) 
+      && this.chargeFilter(specie)
+      && this.acidTypeFilter(specie));
     }
   },
   methods: {
@@ -89,32 +94,31 @@ createApp({
       })
     },
 
-    // filterByName(){
-    //   if(this.wordFilter){        
-    //     let filteredTable = []
-    //     for (n in this.species){
-          
-    //       let nameString = this.species[n].name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
-    //       if(nameString.includes(this.wordFilter.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase())){
-    //         filteredTable.push(this.species[n]);
-    //       }
-    //     }
-    //     console.log(filteredTable)
-    //     this.species = filteredTable
-    //   }
-     
-    // },
+    normalizeString(string){
+      return string.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    },
+    
+    chargeFilter(specie){
+      if(this.selectedCharge == "Todos"){return true}
+      else if (this.selectedCharge == specie.chargeType ){return true}
+      else{return false}
+    },
+
+    acidTypeFilter(specie){
+      if(this.selectedAcidType == "Todos"){return true}
+      else if (this.selectedAcidType == specie.acidType ){return true}
+      else{return false}
+    },
+
+    resetFilters(){
+      this.selectedAcidType = "Todos"
+      this.selectedCharge = "Todos"
+      this.wordFilter = ""
+    },
 
     checkNotNull(info) {
       info != null ? (value = info) : (value = "-");
       return value;
-    },
-
-    openSpeciesInfo(selectedSpecie) {
-      // Grab the specie's id to look for it in the data base
-      selectedSpecie.id = this.selectedSpecieID;
-
-      // Petition for specie's data to display in new view
     },
   },
 }).mount("#app");
