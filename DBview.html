@@ -36,9 +36,8 @@
             </header>
 
             <main class="main-container">
-
                 <!-- ******* FORM ****** -->
-               <form v-on:submit.prevent="filterByName()" class="search-form">
+               <form v-on:submit.prevent="" class="search-form">
                     <section class="left-form">
                         <section class="top-fields">
                             <h1 class="db-title">Búsqueda</h1>
@@ -53,8 +52,10 @@
                                 <label>Clasificación</label>
                                 <select class="form-input">
                                     <option>Todos</option>
-                                    <option>Categoria 1</option>
-                                    <option>Categoria 2</option>
+                                    <option>Ácido debil</option>
+                                    <option>Ácido fuerte</option>
+                                    <option>Base debil</option>
+                                    <option>Base fuerte</option>
                                 </select>
                             </fieldset>
                            
@@ -73,8 +74,10 @@
                                     <label>Autor</label>
                                     <select class="form-input-small">
                                         <option>Todos</option>
-                                        <option>Carga 1</option>
-                                        <option>Carga 2</option>
+                                        <option>Chang, R.</option>
+                                        <option>Skoog, D.</option>
+                                        <option>Speight, J.</option>
+                                        <option>Montuenga, C.</option>
                                     </select>
                                 </fieldset>
                             </section>
@@ -85,7 +88,7 @@
                     
                     <section class="button-fields">
                         <input class="filter-button" type="submit" value="Filtrar">
-                        <button class="reset-form-button">Restablecer</button>
+                        <button class="reset-form-button" @click="wordFilter = ''">Restablecer</button>
                     </section>
                </form>
 
@@ -103,7 +106,7 @@
                         <th>Carga</th>
 
                     </tr>
-                    <tr class="table-row" v-for="specie in species" @click="openSpeciesInfo(specie)" href="SpecieView.html">
+                    <tr class="table-row" v-for="specie in filteredSpecies">
                         <td>{{specie.name}}</td>
                         <td>{{specie.formula}}</td>
                         <td>{{specie.molarWeight}}</td>
@@ -132,8 +135,10 @@
 
     </body>
 
+
     <script type="text/javascript" src="./Scripts/app.js" defer></script>
     <script src="Scripts/fontAsome.min.js" type="text/javascript" defer></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 </html>
